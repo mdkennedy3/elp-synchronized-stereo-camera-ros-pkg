@@ -18,9 +18,9 @@ sudo apt-get install ros-kinetic-ros-base ros-kinetic-image-common ros-kinetic-i
 Now you can install the elp_stereo_camera package:
 
 ```bash
-git clone https://github.com/joshvillbrandt/elp-stereo-camera-ros-pkg.git  ~/catkin_ws/src/elp_stereo_camera
+git clone https://github.com/mdkennedy3/elp-synchronized-stereo-camera-ros-pkg  ~/catkin_ws/src/elp_stereo_camera
 
-# setup udev rules
+# setup udev rules (navigate to package)
 sudo ./scripts/create_udev_rules.sh
 
 ```
