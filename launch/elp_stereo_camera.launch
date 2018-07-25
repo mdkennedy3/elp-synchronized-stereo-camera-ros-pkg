@@ -11,7 +11,7 @@
   <arg name="FRAMERATE" default="30" />  <!-- max 60fps for ELP-960P2CAM-V90-VC -->
 
   <!-- start the cameras -->
-  <node respawn="true" pkg="usb_cam" type="usb_cam_node" name="right" ns="$(arg CAMERA_NAME)">
+  <node respawn="true" pkg="usb_cam" type="usb_cam_node" name="sync" ns="$(arg CAMERA_NAME)">
     <param name="video_device" value="$(arg DEVICE)" type="string"/>
     <param name="pixel_format" value="mjpeg" type="string"/>
     <param name="image_width" value="$(arg WIDTH)" type="int"/>

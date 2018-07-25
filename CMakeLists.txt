@@ -11,6 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  sensor_msgs
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -68,10 +70,11 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   std_msgs
+   sensor_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -104,8 +107,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES elp-stereo-synchronized-ros-pkg
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  LIBRARIES elp-stereo-synchronized-ros-pkg
+  CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs
 #  DEPENDS system_lib
 )
 
@@ -134,6 +137,10 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/elp-stereo-synchronized-ros-pkg_node.cpp)
+
+add_executable(split_sync_images src/split_sync_images.cpp)
+target_link_libraries(split_sync_images ${catkin_LIBRARIES})
+
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
