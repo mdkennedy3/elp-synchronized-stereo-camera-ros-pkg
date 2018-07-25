@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+  <name>elp_stereo_synchronized_ros_pkg</name>
+  <version>0.0.0</version>
+  <description>The elp_stereo_synchronized_ros_pkg package</description>
+  <maintainer email="monroe.kennedy3@gmail.com">Monroe Kennedy</maintainer>
+  <license>GPLv3</license>
+  <author email="monroe.kennedy3@gmail.com">Monroe Kennedy</author> 
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>usb_cam</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>usb_cam</run_depend>
+</package>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!--Tested on ELP sync device: ELP-960P2CAM-V90-VC -->
+  <arg name="CAMERA_NAME" default="elp" />
+  <arg name="DEVICE" default="/dev/elp_sync" />
+
+  <!-- Combined width of two images in single reported image, each are 1280x960 -->
+  <arg name="WIDTH" default="2560" />
+  <arg name="HEIGHT" default="960" />
+  <arg name="FRAMERATE" default="30" />  <!-- max 60fps for ELP-960P2CAM-V90-VC -->
+
+  <!-- start the cameras -->
+  <node respawn="true" pkg="usb_cam" type="usb_cam_node" name="right" ns="$(arg CAMERA_NAME)">
+    <param name="video_device" value="$(arg DEVICE)" type="string"/>
+    <param name="pixel_format" value="mjpeg" type="string"/>
+    <param name="image_width" value="$(arg WIDTH)" type="int"/>
+    <param name="image_height" value="$(arg HEIGHT)" type="int"/>
+    <param name="framerate" value="$(arg FRAMERATE)" type="int"/>
+    <param name="camera_name" value="$(arg CAMERA_NAME)_sync" type="string"/>
+    <param name="camera_frame_id" value="$(arg CAMERA_NAME)_sync_optical_frame" type="string"/>
+  </node>
+</launch>
+

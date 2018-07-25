@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<robot name="elp_stereo_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="INTEROCULAR" value="0.060" />
+  <xacro:property name="BOARD_THICKNESS" value="0.002" />
+  <xacro:property name="LENS_LENGTH" value="0.014" />
+
+  <xacro:macro name="elp_stereo_camera" params="name">
+    <link name="${name}">
+      <visual>
+        <geometry>
+          <box size="0.002 0.070 .016"/>
+        </geometry>
+        <origin xyz="0.001 0 0"/>
+        <material name="gray">
+          <color rgba="0.1 0.1 0.1 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="${name}_left_frame">
+      <visual>
+        <geometry>
+          <cylinder length="${LENS_LENGTH}" radius="0.005"/>
+        </geometry>
+        <origin xyz="${-LENS_LENGTH/2} 0 0" rpy="0 ${M_PI/2} 0"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="${name}_left_optical_frame">
+    </link>
+
+    <link name="${name}_right_frame">
+      <visual>
+        <geometry>
+          <cylinder length="${LENS_LENGTH}" radius="0.005"/>
+        </geometry>
+        <origin xyz="${-LENS_LENGTH/2} 0 0" rpy="0 ${M_PI/2} 0"/>
+        <material name="black">
+          <color rgba="0 0 0 1"/>
+        </material>
+      </visual>
+    </link>
+
+    <link name="${name}_right_optical_frame">
+    </link>
+
+    <joint name="${name}_to_${name}_left_frame" type="fixed">
+      <parent link="${name}"/>
+      <child link="${name}_left_frame"/>
+      <origin xyz="${BOARD_THICKNESS/2 + LENS_LENGTH} ${INTEROCULAR/2} 0"/>
+    </joint>
+
+    <joint name="${name}_left_frame_to_${name}_left_optical_frame" type="fixed">
+      <parent link="${name}_left_frame"/>
+      <child link="${name}_left_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
+    </joint>
+
+    <joint name="${name}_to_${name}_right_frame" type="fixed">
+      <parent link="${name}"/>
+      <child link="${name}_right_frame"/>
+      <origin xyz="${BOARD_THICKNESS/2 + LENS_LENGTH} ${-INTEROCULAR/2} 0"/>
+    </joint>
+
+    <joint name="${name}_right_frame_to_${name}_right_optical_frame" type="fixed">
+      <parent link="${name}_right_frame"/>
+      <child link="${name}_right_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}"/>
+    </joint>
+  </xacro:macro>
+</robot>
