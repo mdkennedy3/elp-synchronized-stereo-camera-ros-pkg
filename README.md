@@ -1,4 +1,4 @@
-# elp-stereo-camera-ros-pkg
+# elp-synchronized-stereo-camera-ros-pkg
 
 A ROS driver for the ELP Dual Lens synchronized stereo camera.
 
