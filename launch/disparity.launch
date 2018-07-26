@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+<arg name="CAMERA_NAME" default="elp" />
+<arg name="visualize_disparity" default="true" />
+
+<!--run the cameras-->
+<include file="$(find elp_stereo_synchronized_ros_pkg)/launch/elp_stereo_camera.launch"/>
+
+<!-- run stereo image proc -->
+<include file="$(find elp_stereo_synchronized_ros_pkg)/launch/stereo_image_proc.launch"/>
+
+<!-- visualize disparity -->
+<node name="disparity_view" pkg="image_view" type="disparity_view" args="image" respawn="true" if="$(arg visualize_disparity)" >
+<remap from="image" to="$(arg CAMERA_NAME)/disparity" />
+</node>
+
+</launch>
+
+
+

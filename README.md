@@ -30,12 +30,17 @@ sudo ./scripts/create_udev_rules.sh
 
 ## How to Run
 
-Run the launch file
+To simply generate seperate stereo images run the launch file
 ```bash
 roslaunch elp_stereo_synchronized_ros_pkg elp_stereo_camera.launch 
 ```
 (images can easily be viewed using [rqt image viewer](http://wiki.ros.org/rqt_image_view))
 
+To See disparity run 
+```bash
+roslaunch elp_stereo_synchronized_ros_pkg disparity.launch
+```
+when visualize_disparity argument is true, a image\_view disparity window will appear
 
 
 
