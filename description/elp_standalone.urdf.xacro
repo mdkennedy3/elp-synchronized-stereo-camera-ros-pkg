@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<robot name="elp_standalone" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- include the elp_stereo_camera macro -->
+  <xacro:include filename="$(find elp_stereo_synchronized_ros_pkg)/description/elp_stereo_camera.urdf.xacro"/>
+
+  <!-- use the elp_stereo_camera macro to create a camera with name "elp" -->
+  <elp_stereo_camera name="elp"/>
+</robot>

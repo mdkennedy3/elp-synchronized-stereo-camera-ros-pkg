@@ -39,8 +39,8 @@ SplitImage::SplitImage() //: nh_(ros::NodeHandle("~")), it_(std::shared_ptr<imag
 {
   nh_ = ros::NodeHandle("~");
   it_.reset(new image_transport::ImageTransport(nh_)); //connect image transport to node
-  cinfo_left_= std::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nh_, "left"));  //Setup camera info managers in respective ns
-  cinfo_right_= std::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nh_, "right"));  
+  cinfo_left_= std::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nh_, "elp_left"));  //Setup camera info managers in respective ns
+  cinfo_right_= std::shared_ptr<camera_info_manager::CameraInfoManager>(new camera_info_manager::CameraInfoManager(nh_, "elp_right"));  
   //Load calibration files
   cinfo_left_->loadCameraInfo("package://elp_stereo_synchronized_ros_pkg/calibration/elp_left.yaml");
   cinfo_right_->loadCameraInfo("package://elp_stereo_synchronized_ros_pkg/calibration/elp_right.yaml");
