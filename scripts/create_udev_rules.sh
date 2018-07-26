@@ -5,7 +5,7 @@ echo "This script copies the udev rule to /etc to facilitate bringing"
 echo "up the elp stereo usb connection as /dev/elp_sync*"
 echo ""
 
-sudo cp `rospack find elp-stereo-synchronized-ros-pkg`/99-elp-stereo-sync-camera.rules /etc/udev/rules.d
+sudo cp `rospack find elp_stereo_synchronized_ros_pkg`/99-elp-stereo-sync-camera.rules /etc/udev/rules.d
 
 
 echo ""

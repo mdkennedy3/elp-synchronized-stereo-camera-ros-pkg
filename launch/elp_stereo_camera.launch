@@ -20,5 +20,9 @@
     <param name="camera_name" value="$(arg CAMERA_NAME)_sync" type="string"/>
     <param name="camera_frame_id" value="$(arg CAMERA_NAME)_sync_optical_frame" type="string"/>
   </node>
+
+<!--This node splits the synchronized images into seperate messages: (camera_name)/(left/right)/image_raw -->
+<node respawn="true" pkg="elp_stereo_synchronized_ros_pkg" type="split_sync_images" name="split_sync_image_node"  />
+
 </launch>
 
