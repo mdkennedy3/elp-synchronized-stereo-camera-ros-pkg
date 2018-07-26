@@ -34,8 +34,8 @@ SplitImage::SplitImage()
   sync_image_sub_  = nh_.subscribe("/elp/sync/image_raw", 1, &SplitImage::SyncImageCallback, this);
   nh_.param<std::string>("camera_ns", camera_ns, "elp"); //Set camera ns
 
-  left_image_pub_ = nh_.advertise<sensor_msgs::Image>("/left/image_raw",1);
-  right_image_pub_ = nh_.advertise<sensor_msgs::Image>("/right/image_raw",1);
+  left_image_pub_ = nh_.advertise<sensor_msgs::Image>("left/image_raw",1);
+  right_image_pub_ = nh_.advertise<sensor_msgs::Image>("right/image_raw",1);
 }
 
 void SplitImage::SyncImageCallback(const sensor_msgs::ImageConstPtr& msg)

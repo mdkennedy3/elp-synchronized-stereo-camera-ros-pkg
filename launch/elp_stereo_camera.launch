@@ -22,7 +22,7 @@
   </node>
 
 <!--This node splits the synchronized images into seperate messages: (camera_name)/(left/right)/image_raw -->
-<node respawn="true" pkg="elp_stereo_synchronized_ros_pkg" type="split_sync_images" name="split_sync_image_node"  />
+<node respawn="true" pkg="elp_stereo_synchronized_ros_pkg" type="split_sync_images" name="split_sync_image_node" ns="$(arg CAMERA_NAME)"  />
 
 </launch>
 
