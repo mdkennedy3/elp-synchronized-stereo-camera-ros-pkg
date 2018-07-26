@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="CAMERA_NAME" default="elp" />
+
+  <!-- start the stereo image rectification processor -->
+  <node respawn="true" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" ns="$(arg CAMERA_NAME)">
+    <remap from="left/image_raw" to="split_sync_image_node/left/image_raw"/>
+    <remap from="right/image_raw" to="split_sync_image_node/right/image_raw"/>
+    <remap from="left/camera_info" to="split_sync_image_node/left/camera_info"/>
+    <remap from="right/camera_info" to="split_sync_image_node/right/camera_info"/>   
+    <param name="approximate_sync" value="true" type="bool"/>
+    <param name="queue_size" value="20" type="int"/>
+  </node>
+</launch>
+
