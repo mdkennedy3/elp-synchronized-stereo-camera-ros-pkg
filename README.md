@@ -4,7 +4,9 @@ A ROS driver for the ELP Dual Lens synchronized stereo camera.
 
 ## Documentation
 
-Documentation is available on the ROS wiki: http://wiki.ros.org/elp_stereo_camera
+Documentation for original driver (non-synchronized) is available on the ROS wiki: http://wiki.ros.org/elp_stereo_camera
+
+This has been tested on the ELP model: ELP-960P2CAM-V90-VC
 
 ## Install from Source
 
@@ -19,15 +21,20 @@ Now you can install the elp_stereo_camera package:
 
 ```bash
 git clone https://github.com/mdkennedy3/elp-synchronized-stereo-camera-ros-pkg  ~/catkin_ws/src/elp_stereo_camera
-
+```
+After compiling the package, then setup the udev rules:
+```bash
 # setup udev rules (navigate to package)
 sudo ./scripts/create_udev_rules.sh
-
 ```
 
+## How to Run
 
-
-
+Run the launch file
+```bash
+roslaunch elp_stereo_synchronized_ros_pkg elp_stereo_camera.launch 
+```
+(images can easily be viewed using [rqt image viewer](http://wiki.ros.org/rqt_image_view))
 
 
 

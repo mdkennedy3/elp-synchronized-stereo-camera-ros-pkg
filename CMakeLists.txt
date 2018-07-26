@@ -1,8 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(elp_stereo_synchronized_ros_pkg)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 
 ## Add support for C++11, supported in ROS Kinetic and newer
 # add_definitions(-std=c++11)
+
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -15,6 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   cv_bridge
   image_transport
+  camera_info_manager
 )
 
 ## System dependencies are found with CMake's conventions
@@ -110,7 +114,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
   LIBRARIES elp-stereo-synchronized-ros-pkg
-  CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs cv_bridge image_transport
+  CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs cv_bridge image_transport camera_info_manager
 #  DEPENDS system_lib
 )
 

@@ -1,0 +1,20 @@
+image_width: 1280
+image_height: 960
+camera_name: elp_right 
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [848.762717, 0.000000, 684.689731, 0.000000, 848.444519, 516.033598, 0.000000, 0.000000, 1.000000]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.368150, 0.107947, -0.000370, 0.001652, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [621.595215, 0.000000, 718.438184, 0.000000, 0.000000, 726.255371, 529.081200, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]
