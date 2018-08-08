@@ -10,7 +10,12 @@
     <arg name="CAMERA_NAME" value="$(arg CAMERA_NAME)" />
   </include>
 
+
   <!-- start calibration -->
-  <node pkg="camera_calibration" type="cameracalibrator.py" name="cameracalibrator" args=" --size 8x6 --square 0.025 --approximate=0.3 left:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/left/image_raw right:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/right/image_raw left_camera:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/left right_camera:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/right" required="true">
+  
+ <node pkg="camera_calibration" type="cameracalibrator.py" name="cameracalibrator" args=" --size 10x7 --square 0.036 left:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/left/image_raw right:=/$(arg CAMERA_NAME)/$(arg sync_split_node)/right/image_raw " required="true">
   </node>
+
+
 </launch>
+
