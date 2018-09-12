@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!--run the cameras-->
+  <include file="$(find elp_stereo_synchronized_ros_pkg)/launch/elp_stereo_camera.launch"/>
+
+  <!-- run stereo image proc -->
+  <include file="$(find elp_stereo_synchronized_ros_pkg)/launch/stereo_image_proc.launch"/>
+
+  <!--Run the rviz display -->
+
+  <include file="$(find elp_stereo_synchronized_ros_pkg)/launch/rviz.launch"/>
+
+</launch>
